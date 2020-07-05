@@ -27,3 +27,7 @@ n = float(n)
 # work out skewness
 skewness = n / ((n - 1) * (n - 2)) * rdd.map(lambda x: pow(x - mean, 3) / pow(sd, 3)).sum()
 print(skewness)
+
+# work out kurtosis
+kurtosis = rdd.map(lambda x: pow(x - mean, 4) / pow(sd, 4)).sum()*(1/n)
+print(kurtosis)
